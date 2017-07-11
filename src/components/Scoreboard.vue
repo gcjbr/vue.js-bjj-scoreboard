@@ -25,10 +25,5 @@ export default {
   computed: {
     ...mapGetters(['fighter1', 'fighter2']),
   },
-  data () {
-    return {
-
-    };
-  }
 };
 </script>
