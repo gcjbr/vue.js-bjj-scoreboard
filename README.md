@@ -1,21 +1,41 @@
-# placar
+# Vue.JS BJJ Scoreboard
 
-> A Vue.js project
+This is just a simple Vue.js based Brazilian Jiu-Jitsu scoreboard I made for a competition.
 
-## Build Setup
+# Use it online
 
-``` bash
-# install dependencies
-npm install
+If you just want to use it, go to gcj.io/scoreboard and that's it. You don't even have to be online to used it once it's loaded.
 
-# serve with hot reload at localhost:8080
-npm run dev
+### Development
 
-# build for production with minification
-npm run build
+If you wanna play with it, it's easy.
 
-# build for production and view the bundle analyzer report
-npm run build --report
+First, clone this repo.
+
+Then, install the dependencies with:
+
+```sh
+$ npm install
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+To run the app use:
+
+```sh
+$ npm run dev
+```
+
+To build for deployment, run:
+```sh
+$ npm run build
+```
+
+That's it :)
+
+
+License
+----
+
+MIT
+
+
+**Just do whatever you want with it :)**
