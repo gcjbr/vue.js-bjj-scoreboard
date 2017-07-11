@@ -20,6 +20,7 @@
 
 <script>
 
+import { mapMutations } from 'vuex'
 
 
 export default {
@@ -27,8 +28,9 @@ export default {
   name: 'ControlPoints',
   props:['target'],
   methods: {
+    ...mapMutations({ mutChange: 'change'}),
     change(t, a, v){
-      this.$store.commit('change', {
+      this.mutChange({
         target: t,
         atribute: a,
         value: v,
