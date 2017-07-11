@@ -1,0 +1,237 @@
+<template>
+  <div class="app">
+    <scoreboard></scoreboard>
+    <controls></controls>
+
+  </div>
+</template>
+
+<script>
+
+import scoreboard from './components/Scoreboard.vue';
+import controls from './components/Controls.vue';
+
+
+
+export default {
+  components: {
+    scoreboard,
+    controls
+  },
+  data: () => ({
+
+  }),
+  methods: {
+    addPoints(obj, points){
+      obj.score += points;
+    },
+    takePoints(obj, points){
+      if (obj.score - points < 0) {
+        obj.score = 0;
+      } else {
+        obj.score -= points;
+      }
+    },
+    giveAdvantage(obj, points){
+      obj.advantage += points;
+    },
+    giveFault(obj, points){
+      obj.fault += points;
+    },
+    reset(){
+      this.fighter1.score = 0;
+      this.fighter1.fault = 0;
+      this.fighter1.advantage = 0;
+      this.fighter2.score = 0;
+      this.fighter2.fault = 0;
+      this.fighter2.advantage = 0;
+    },
+  }
+
+}
+</script>
+
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+
+$control-h: 110px;
+$control-c-b: #CCCCCC;
+
+$btn-c: #444;
+$btn-c-b: #DDDDDD;
+$btn-c-b__h: #BBBBBB;
+$btn-c-border:  RGBA(200, 200, 200, 1);
+
+$fighter1-c-b: #E8F6FF;
+$fighter1-c-t: #3E4F76;
+$fighter2-c-b: #8CB5FF;
+$fighter2-c-t: #1E2536;
+
+$adv-c: #2FE605;
+$fau-c: #CA0040;
+
+$chronometer-h: 120px;
+$chronometer-w: 30%;
+$chronometer-m-l: (100% - $chronometer-w) / 2 ;
+$chronometer-c-t: #ffffff;
+$chronometer-c-b: #000000;
+$chronometer-p-bot: $control-h;
+
+
+
+html, body{
+
+    font-size: 10px;
+    font-family: Rubik;
+    margin: 0;
+    padding: 0;
+
+    min-width: 100%;
+    width: 100%;
+    max-width: 100%;
+
+    min-height: 100%;
+    height: 100%;
+    max-height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+
+}
+
+
+.scoreboard {
+  display: flex;
+
+  flex: 1;
+  height: calc(100% - #{$control-h});
+
+}
+
+.fighter {
+  display: flex;
+  width: 50%;
+  padding: 10px;
+}
+
+.fighter-points {
+  width: 70%;
+  text-align: center;
+  font-size: 40.2em;
+
+
+}
+
+.fighter1 {
+  background-color: $fighter1-c-b;
+  color: $fighter1-c-t;
+}
+
+.fighter2 {
+  background-color: $fighter2-c-b;
+  color: $fighter2-c-t;
+}
+
+.adv, .fau {
+  font-size: 11em;
+  padding: 0 .3em;
+  text-align: right;
+}
+
+.adv {
+  color: $adv-c;
+}
+
+.fau {
+  color: $fau-c;
+}
+
+.fighter2 .adv, .fighter2 .fau {
+  text-align: right;
+}
+
+.chronometer {
+  background-color: $chronometer-c-b;
+  bottom: $chronometer-p-bot;
+  color: $chronometer-c-t;
+  font-size: 10em;
+  height: $chronometer-h;
+  margin-left:$chronometer-m-l;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  width: $chronometer-w;
+
+}
+
+
+.controls {
+  background-color: $control-c-b;
+  height: $control-h;
+  display: flex;
+}
+
+.control-1, .control-2, .control-chronometer {
+  flex-grow: 1;
+
+}
+
+.minus, .plus {
+  width:100%;
+  height: 50%;
+  display: flex;
+
+}
+
+.control-chronometer {
+  display: flex;
+  flex-grow: 1 ;
+  padding: 15px;
+
+}
+
+.min, .reset, .play-pause {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: blue;
+  align-sef: center;
+
+  .btn {
+    line-height: 1.4em;
+    width: 100%;
+    flex: 1;
+    padding: 5px;
+    align-sef: center;
+  }
+
+}
+
+.btn {
+  flex-grow: 1;
+  font-size: 1.4em;
+  align-self: center;
+  text-align: center;
+  border: 1px solid $btn-c-border;
+  margin: 0 4px;
+  padding: 10px 0;
+  background-color: $btn-c-b;
+  color: $btn-c;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: $btn-c-b__h;
+}
+
+
+</style>

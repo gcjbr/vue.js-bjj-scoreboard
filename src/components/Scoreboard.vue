@@ -1,0 +1,34 @@
+<template>
+ <div class="scoreboard">
+      <div class="fighter fighter1">
+        <div class="fighter-points">{{ fighter1.score }}</div>
+        <div class="adv">{{ fighter1.advantage }}</div>
+        <div class="fau">{{ fighter1.fault }}</div>
+      </div>
+    <div class="fighter fighter2">
+      <div class="fighter-points">{{ fighter2.score }}</div>
+      <div class="adv">{{ fighter2.advantage }}</div>
+      <div class="fau">{{ fighter2.fault }}</div>
+    </div>
+      <div class="chronometer"> 06:45</div>
+</div>
+
+</template>
+
+<script>
+
+import { mapGetters } from 'vuex';
+
+export default {
+
+  name: 'scoreboard',
+  computed: {
+    ...mapGetters(['fighter1', 'fighter2']),
+  },
+  data () {
+    return {
+
+    };
+  }
+};
+</script>
