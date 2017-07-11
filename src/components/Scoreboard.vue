@@ -10,7 +10,7 @@
       <div class="adv">{{ fighter2.advantage }}</div>
       <div class="fau">{{ fighter2.fault }}</div>
     </div>
-      <div class="chronometer"> {{ time }}</div>
+      <div class="chronometer"> <span>{{ time }} </span></div>
 </div>
 
 </template>
