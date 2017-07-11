@@ -10,7 +10,7 @@
       <div class="adv">{{ fighter2.advantage }}</div>
       <div class="fau">{{ fighter2.fault }}</div>
     </div>
-      <div class="chronometer"> 06:45</div>
+      <div class="chronometer"> {{ time }}</div>
 </div>
 
 </template>
@@ -23,7 +23,7 @@ export default {
 
   name: 'scoreboard',
   computed: {
-    ...mapGetters(['fighter1', 'fighter2']),
+    ...mapGetters(['fighter1', 'fighter2','chronometer', 'time']),
   },
 };
 </script>

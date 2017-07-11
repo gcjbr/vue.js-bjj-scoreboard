@@ -22,7 +22,9 @@ export const store = new Vuex.Store({
     },
     chronometer: {
       playing: false,
-      time: 300,
+      defaultTime: 420,
+      time: 420,
+      obj: null,
     },
   },
   getters:{
@@ -31,6 +33,18 @@ export const store = new Vuex.Store({
     },
     fighter2(state){
       return state.fighter2;
+    },
+    chronometer(state){
+      return state.chronometer;
+    },
+    time(state){
+      let minutes = parseInt(state.chronometer.time / 60, 10)
+      let seconds = parseInt(state.chronometer.time % 60, 10);
+
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      return minutes +":"+ seconds;
     },
 
   },
@@ -46,5 +60,45 @@ export const store = new Vuex.Store({
         state[target][atribute] += value;
       }
     },
+    resetMatch(state){
+      state.fighter1.score = 0;
+      state.fighter1.fault = 0;
+      state.fighter1.advantage = 0;
+
+      state.fighter2.score = 0;
+      state.fighter2.fault = 0;
+      state.fighter2.advantage = 0;
+
+      state.chronometer.time = state.chronometer.defaultTime;
+      state.chronometer.playing = false;
+
+
+      clearInterval(state.chronometer.obj);
+
+    },
+    resetTime (state){
+      state.chronometer.time = state.chronometer.defaultTime;
+
+      state.chronometer.playing = false;
+      clearInterval(state.chronometer.obj);
+    },
+    startTime(state){
+      if(state.chronometer.playing == false) {
+        state.chronometer.playing = true;
+
+         state.chronometer.obj = setInterval(()=>{
+          if (state.chronometer.time <= 0) {
+            state.chronometer.time = 0;
+          } else {
+            state.chronometer.time -= 1;
+          }
+
+        }, 1000);
+
+      } else {
+        state.chronometer.playing = false;
+        clearInterval(state.chronometer.obj);
+      }
+    }
   }
 })
