@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
 
 $control-h: 110px;
 $control-c-b: #CCCCCC;
+
+
 
 $btn-c: #444;
 $btn-c-b: #DDDDDD;
@@ -17,11 +21,16 @@ $adv-c: #2FE605;
 $fau-c: #CA0040;
 
 $chronometer-h: 120px;
-$chronometer-w: 30%;
+$chronometer-w: 40%;
 $chronometer-m-l: (100% - $chronometer-w) / 2 ;
 $chronometer-c-t: #ffffff;
 $chronometer-c-b: #000000;
 $chronometer-p-bot: $control-h;
+
+$chronometer-h-mob-port: 1020px;
+
+
+
 
 * {
   padding: 0;
@@ -52,7 +61,6 @@ body {
   flex-direction: column;
   width: 100%;
   min-height: 100%;
-  background-color: red;
 
 }
 
@@ -60,14 +68,14 @@ body {
 .scoreboard {
   display: flex;
   flex-grow: 1;
-
+  font-family: 'Roboto Mono', monospace;
+  flex-wrap: wrap;
 
 }
 
 .fighter {
   display: flex;
   width: 50%;
-  flex-wrap: wrap;
   align-content: flex-start;
 }
 
@@ -77,9 +85,6 @@ body {
   text-align: center;
   font-size: 42.2em;
   line-height: 1em;
-  align-self: flex-start;
-
-
 
 }
 
@@ -92,14 +97,37 @@ body {
 .fighter2 {
   background-color: $fighter2-c-b;
   color: $fighter2-c-t;
-  justify-content: flex-end;
+
+}
+
+.score-sub {
+  width: 100%;
+  display: flex;
+  background-color: gray;
+  flex: 1;
+  div {
+    flex-basis: 33.333%;
+  }
+}
+
+.sub-fighter {
+  display: flex;
+
+  &1 {
+    background-color: $fighter1-c-b;
+  }
+
+  &2 {
+    background-color: $fighter2-c-b;
+  }
+
+
+
 }
 
 .adv, .fau {
   font-size: 11em;
   padding: 0 .3em;
-  text-align: left;
-
 }
 
 .adv {
@@ -113,15 +141,11 @@ body {
 
 .chronometer {
   background-color: $chronometer-c-b;
-  bottom: $chronometer-p-bot;
   color: $chronometer-c-t;
   font-size: 10em;
-  height: $chronometer-h;
-  margin-left:$chronometer-m-l;
-  padding: 0;
-  position: absolute;
   text-align: center;
-  width: $chronometer-w;
+  font-family: 'Roboto Mono', monospace;
+  flex-basis: 40%;
 
 }
 
@@ -134,7 +158,6 @@ body {
 
 .control-1, .control-2, .control-chronometer {
   flex-grow: 1;
-
 }
 
 .minus, .plus {
@@ -183,4 +206,28 @@ body {
 
 .btn:hover {
   background-color: $btn-c-b__h;
+}
+
+
+/* Smartphones and Tablets (portrait) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 600px) and (orientation:portrait) {
+
+
+.controls {
+  height: $chronometer-h-mob-port;
+  flex-direction: column;
+}
+
+.btn {
+  font-size: 4em;
+  padding: 20px;
+}
+
+
+}
+
+/* Smartphones and Tablets (portrait) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 600px) and (orientation:landscape) {
+
+
 }
