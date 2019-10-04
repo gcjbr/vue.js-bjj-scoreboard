@@ -1,41 +1,29 @@
-# Vue.JS BJJ Scoreboard
+# vue.js-bjj-scoreboard
 
-This is just a simple Vue.js based Brazilian Jiu-Jitsu scoreboard I made for a competition.
-
-# Use it online
-
-If you just want to use it, go to gcj.io/scoreboard and that's it. You don't even have to be online to used it once it's loaded.
-
-### Development
-
-If you wanna play with it, it's easy.
-
-First, clone this repo.
-
-Then, install the dependencies with:
-
-```sh
-$ npm install
+## Project setup
+```
+npm install
 ```
 
-To run the app use:
-
-```sh
-$ npm run dev
+### Compiles and hot-reloads for development
+```
+npm run serve
 ```
 
-To build for deployment, run:
-```sh
-$ npm run build
+### Compiles and minifies for production
+```
+npm run build
 ```
 
-That's it :)
+### Run your tests
+```
+npm run test
+```
 
+### Lints and fixes files
+```
+npm run lint
+```
 
-License
-----
-
-MIT
-
-
-**Just do whatever you want with it :)**
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
