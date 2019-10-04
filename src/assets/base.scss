@@ -1,0 +1,22 @@
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body{
+    font-size: 10px;
+    font-family: Rubik;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    max-height: 100vh;
+}
+
+.app {
+  display: grid;
+  height: 100vh;
+  max-height: 100vh;
+  grid-template-rows: auto $control-h;
+
+}

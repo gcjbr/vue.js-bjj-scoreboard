@@ -1,0 +1,58 @@
+.controls {
+  background-color:$control-c-b;
+  display: grid;
+  grid-template-columns: auto 40% auto;
+
+}
+
+.control-1, .control-2, .control-chronometer {
+  flex-grow: 1;
+}
+
+.minus, .plus {
+  width:100%;
+  height: 50%;
+  display: flex;
+
+}
+
+.control-chronometer {
+  display: flex;
+  flex-grow: 1 ;
+  padding: 15px;
+
+}
+
+.min, .reset, .play-pause {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: blue;
+  align-sef: center;
+
+  .btn {
+    line-height: 1.4em;
+    width: 100%;
+    flex: 1;
+    padding: 5px;
+    align-sef: center;
+  }
+
+}
+
+.btn {
+  flex-grow: 1;
+  font-size: 1.4em;
+  align-self: center;
+  text-align: center;
+  border: 1px solid $btn-c-border;
+  margin: 0 4px;
+  padding: 10px 0;
+  background-color: $btn-c-b;
+  color: $btn-c;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: $btn-c-b__h;
+}

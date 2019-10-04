@@ -1,10 +1,16 @@
 <template>
  <div class="scoreboard">
-      <div class="fighter fighter1">
-        <div class="fighter-points">{{ fighter1.score }}</div>
-
+    <div class="fighter fighter1">
+      <div class="fighter-name">
+        <editable-name v-model="fighter1.name"></editable-name>
+        
       </div>
+      <div class="fighter-points">{{ fighter1.score }}</div>
+    </div>
     <div class="fighter fighter2">
+        <div class="fighter-name">
+          <editable-name v-model="fighter2.name"></editable-name>
+        </div>
       <div class="fighter-points">{{ fighter2.score }}</div>
 
     </div>
@@ -29,10 +35,14 @@
 <script>
 
 import { mapGetters } from 'vuex';
+import editableName from './EditableName.vue';
 
 export default {
 
   name: 'scoreboard',
+  components: {
+    editableName,
+  },
   computed: {
     ...mapGetters(['fighter1', 'fighter2','chronometer', 'time']),
   },
