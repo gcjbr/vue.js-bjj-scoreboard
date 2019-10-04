@@ -15,6 +15,10 @@ npm run serve
 npm run build
 ```
 
+##### If you want to customize your production path
+
+Create an .env file on the root of the project and add the *VUE_APP_PRODUCTION_PATH* variable
+
 ### Run your tests
 ```
 npm run test
